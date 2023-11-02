@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Add car</title></head>
+<body>
+</div>
+        <h3>Add Car</h3>
+        <form th:object="${car}" action="add" method="post">
+            License : <input type="text" th:field="*{license}" /><br />
+            Make : <input type="text" th:field="*{make}" /><br />
+            Model: <input type="text" th:field="*{model}" /><br />
+            <input type="submit" value="Save" />
+        </form>
+    <br />
+
+</body>
+</html>

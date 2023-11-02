@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Cart</title></head>
+<body>
+<div id="header">
+    <h2>Your shopping cart</h2>
+</div>
+    <table class="datatable" border="1">
+        <tr><th>Quantity</th><th>Product number</th><th>name</th><th>Price</th><th>Total</th></tr>
+        <tr th:each="cart : ${cartList}">
+            <td th:text="${cart.quantity}">quantity</td>
+            <td th:text="${cart.product.productNumber}">number</td>
+            <td th:text="${cart.product.name}">name</td>
+            <td th:text="${cart.product.price}">price</td>
+            <td th:text="${cart.total}">total</td>
+            <td>
+                <form action="removecartitem" method="post">
+                    <button type="submit" name="pnumber" th:value="${cart.product.productNumber}">Remove</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <form action="products" method="get">
+        <button type="submit">Show Products</button>
+    </form>
+
+</body>
+</html>
